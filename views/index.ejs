@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSA Search Engine</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  <link rel="icon" href="https://assets.vercel.com/image/upload/front/favicon/vercel/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>DSA Search Engine</h1>
+      <form id="search-form" action="/search" method="get">
+        <input type="text" name="q" placeholder="Search algorithms..." aria-label="Search algorithms">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </header>
+
+  <main>
+    <section class="results-section">
+      <h2>Search Results</h2>
+      <div class="search-results" id="search-results">
+        <!-- EJS Template -->
+        <% if (results && results.length > 0) { %>
+          <% results.forEach(function(result) { %>
+            <a class="result" href="<%= result.link %>" target="_blank">
+              <div class="result-content">
+                <h3><%= result.title %></h3>
+              </div>
+            </a>
+          <% }); %>
+        <% } else { %>
+          <p class="no-results">No results found.</p>
+        <% } %>
+        <!-- End EJS Template -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 DSA Search Engine.</p>
+  </footer>
+</body>
+</html>
